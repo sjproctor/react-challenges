@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Intro to React</title>
+
+  </head>
+  <body>
+
+    <div id="react-container"></div>
+
+    <script type="text/babel">
+      class HelloReact extends React.Component{
+        render(){
+          return(
+            <div>
+              <Header />
+              <Content />
+              <Footer />
+            </div>
+          )
+        }
+      }
+      class Header extends React.Component{
+        render(){
+          return(
+            <h2>Foxtrot 2019</h2>
+          )
+        }
+      }
+      class Content extends React.Component{
+        render(){
+          return(
+            <ul>
+              <li>Aizada</li>
+              <li>Brenden</li>
+              <li>Charlie</li>
+              <li>Diego</li>
+              <li>Ernesto</li>
+              <li>Jake</li>
+              <li>Jeel</li>
+              <li>Jose</li>
+              <li>Kayla</li>
+              <li>Kimberly</li>
+              <li>Kristen</li>
+              <li>Mary</li>
+              <li>Michael</li>
+              <li>Morganne</li>
+              <li>Ofrey</li>
+              <li>Sabrina</li>
+              <li>Samuel</li>
+            </ul>
+          )
+        }
+      }
+      class Footer extends React.Component{
+        render(){
+          return(
+            <p>
+              Sarah | Kait | Matt
+            </p>
+          )
+        }
+      }
+
+      const domContainer = document.querySelector('#react-container');
+      ReactDOM.render(<HelloReact />, domContainer);
+    </script>
+  </body>
+</html>

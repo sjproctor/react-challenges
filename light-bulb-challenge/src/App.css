@@ -1,0 +1,40 @@
+body{
+  margin: 2em;
+  font-family: 'Cabin', sans-serif;
+}
+h1, h3{
+  text-align: center;
+}
+.button, button{
+  text-align: center;
+  padding: 1em;
+  margin: .5em;
+  border-radius: 1em;
+}
+main{
+  display: flex;
+  justify-content: space-around;
+}
+#main-switch-div, #main-box-div{
+  width: 47%;
+}
+
+#lightDiv, #switchDiv{
+  height: 70px;
+  width: 70px;
+  text-align: center;
+  align-items: center;
+  margin: 5px;
+}
+#lightDiv{
+  border: 1px solid black;
+}
+
+#parentLightDiv, #parentLightWithPicDiv{
+  margin: 3em;
+  height: 90px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

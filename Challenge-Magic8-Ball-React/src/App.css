@@ -1,0 +1,72 @@
+body{
+  margin: 1%;
+  text-align:center;
+  font-family: 'Anton', sans-serif;
+  height: 90vh;
+}
+h1{
+  text-decoration: underline;
+  font-size: 40px;
+}
+#submitButton, button{
+  margin: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+}
+#submitButton:hover{
+  background-color: #F5F5F5;
+}
+#inputBox{
+  width: 40vw;
+  height: 50px;
+  border: 2px solid black;
+  font-size: 30px;
+  margin-left: 3.5em;
+}
+#eightBall{
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 90%;
+  height: 350px;
+  width: 350px;
+  padding: 10px;
+  background-color: black;
+}
+.shaking{
+  animation: shakeIt .5s;
+  animation-iteration-count: 2;
+}
+@keyframes shakeIt {
+  0% { transform: translate(5px, 5px) rotate(0deg); }
+  10% { transform: translate(-5px, -7px) rotate(-2deg); }
+  20% { transform: translate(-3px, 0px) rotate(2deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(2deg); }
+  50% { transform: translate(-1px, 2px) rotate(-2deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-2deg); }
+  80% { transform: translate(-4px, -4px) rotate(2deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-2deg); }
+}
+#eight{
+  border: 1px solid white;
+  border-radius: 90%;
+  background-color: white;
+  height: 80px;
+  margin-left: 30%;
+  margin-right: 30%;
+  font-size: 60px;
+}
+#answer{
+  margin: 0 auto;
+  margin-top: 70px;
+  border: 10px solid blue;
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  background-color: blue;
+  width: 150px;
+  font-size: 30px;
+}

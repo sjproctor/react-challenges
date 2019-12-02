@@ -1,0 +1,23 @@
+body{
+  margin: 1em;
+  text-align: center;
+  font-family: 'Bree Serif', serif;
+}
+h1{
+  font-size: 3em;
+  margin: 1em;
+}
+#dice-img{
+  width: 300px;
+  height: 300px;
+}
+#board-container{
+  display: flex;
+  flex-direction: row;
+}
+#dice-container{
+  width: 45%
+}
+#log-container{
+  width: 45%
+}

@@ -1,8 +1,14 @@
 body{
   margin: 1em;
+  text-align: center;
+  font-family: 'Amaranth', sans-serif;
+}
+#box-holder{
+  display: flex;
+  justify-content: center;
 }
 #color-box{
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   border: 2px solid black;
 }

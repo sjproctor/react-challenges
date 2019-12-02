@@ -10,6 +10,7 @@ class LightBulb extends Component{
   }
 
   handleClick = () => {
+    // destructure light and currentColor out of state
     const { light, currentColor } = this.state
     this.setState({ light: light === "off" ? "on" : "off" })
     this.setState({ currentColor: currentColor === "white" ? "yellow" : "white" })

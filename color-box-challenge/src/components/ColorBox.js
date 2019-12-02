@@ -23,12 +23,13 @@ class ColorBox extends Component{
     const { colors, currentColor } = this.state
     return(
       <div>
-        <h2>Color Box</h2>
-        <div
-          id="color-box"
-          onClick={this.colorPicker}
-          style={{backgroundColor: colors[currentColor]}}
-        >
+        <div id="box-holder">
+          <div
+            id="color-box"
+            onClick={ this.colorPicker }
+            style={{ backgroundColor: colors[currentColor] }}
+          >
+          </div>
         </div>
       </div>
     )

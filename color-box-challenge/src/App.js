@@ -11,18 +11,19 @@ class App extends Component{
   }
 
   addColorBox = () => {
-    this.state.colorBoxArray.push(<ColorBox />)
-    this.setState({ colorBoxArray: this.state.colorBoxArray })
+    let { colorBoxArray } = this.state
+    colorBoxArray.push(<ColorBox />)
+    this.setState({ colorBoxArray: colorBoxArray })
   }
 
   removeColorBox = () => {
-    this.setState({ colorBoxArray: this.state.colorBoxArray.pop() })
+    let { colorBoxArray } = this.state
+    colorBoxArray.pop()
+    this.setState({ colorBoxArray: colorBoxArray })
   }
 
   render(){
-    let boxArray = this.state.colorBoxArray.map(box => {
-      return <div> { box } </div>
-    })
+    let { colorBoxArray } = this.state
     return(
       <div>
         <h1>Color Box Challenge</h1>
@@ -30,8 +31,8 @@ class App extends Component{
           <main>
             <button onClick={ this.addColorBox }>Add a Color Box</button>
             <button onClick={ this.removeColorBox }>Remove a Color Box</button>
-            <div>
-              here: { boxArray }
+            <div id="box-holder">
+              { colorBoxArray }
             </div>
           </main>
       </div>

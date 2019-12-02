@@ -5,7 +5,9 @@ body{
 }
 #box-holder{
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 4em;
 }
 #color-box{
   width: 100px;

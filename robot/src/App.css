@@ -1,0 +1,25 @@
+body{
+  margin: 1em;
+  text-align: center;
+}
+img{
+  height: 5em;
+}
+input{
+  padding: 1em;
+  width: 20em;
+}
+#robot-outcome{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#good{
+  width: 30%;
+}
+#bad{
+  width: 30%;
+}
+#kayne{
+  width: 30%;
+}

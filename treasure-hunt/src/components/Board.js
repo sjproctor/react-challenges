@@ -10,7 +10,10 @@ class Board extends Component{
       // treasureLocation and bombLocation begin at null
       treasureLocation: null,
       bombLocation: null,
-      gameOver: false
+      // gameOver is initially set to false and will update to true when the game is over
+      gameOver: false,
+      // game outcome is null and will update with a winner or loser
+      gameOutcome: null
     }
   }
   componentDidMount = () => {
@@ -48,15 +51,17 @@ class Board extends Component{
     // evaluations for the index and treasure/bomb locations
     // each evaluation can only be true if the gameOver value is false, after the user finds the tresure or the bomb gameOver is updated to true
     if(treasureLocation === index && gameOver === false){
-      // if the treasure it at the clicked index, update the array with the icon replacing the ?
+      // if the treasure it at the clicked index, update the array with the icon replacing the ? with a treasure emoji
       spaces[index] = "💍"
       // set state with the icon in the array
       this.setState({
         spaces: spaces,
       })
+      // set a delay on ending the game and displaying the winning message so the user can see the emoji
       setTimeout(() => {
         this.setState({ gameOver: true, gameOutcome: "You win! 😃" })
       }, 500)
+    // each evaluation can only be true if the gameOver value is false, after the user finds the tresure or the bomb gameOver is updated to true
     } else if( bombLocation === index && gameOver === false){
       // if the bomb it at the clicked index, update the array with the icon replacing the ?
       spaces[index] = "💣"
@@ -64,9 +69,11 @@ class Board extends Component{
       this.setState({
         spaces: spaces,
       })
+      // set a delay on ending the game and displaying the losing message so the user can see the emoji
       setTimeout(() => {
         this.setState({ gameOver: true, gameOutcome: "You lose ☹️" })
       }, 500)
+    // if the square clicked is anything but the treasure or bomb it will become a tree as long as the gameOver is still false
     } else if (gameOver === false){
       spaces[index] = "🌴"
       this.setState({ spaces: spaces})
@@ -93,17 +100,19 @@ class Board extends Component{
       <div>
         <h1>Treasure Hunt Challenge!</h1>
         {/* rendering the variable name that contains the mapped component calls - the component calls are part of an array so even though the <Square /> operate indepenently of each other they are part of an array so they have a defined index */}
+        {/* the mapped squares and the game board will only render as long as the game is gameOver is still false */}
         { !this.state.gameOver &&
           <div id="gameBoard">
           { square }
           </div>
         }
-        {/* button that will restart the game by resetting the initial state */}
+        {/* gameOutcome will only render when gameOver is true */}
         { this.state.gameOver &&
           <div id="outcomeBoard">
             { this.state.gameOutcome }
           </div>
         }
+        {/* button that will restart the game by resetting the initial state */}
         <button onClick={ this.restartGame }>
           Restart Game
         </button>

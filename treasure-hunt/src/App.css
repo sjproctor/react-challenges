@@ -1,24 +1,43 @@
 body{
   margin: 1em;
   text-align: center;
+  font-family: 'Satisfy', cursive;
+  background-image: url('./components/island.png');
+  background-repeat: no-repeat;
 }
 button{
   padding: 1em;
   margin: 1em;
+  background-color: #e6faff;
+  border: 2px solid black;
 }
 #gameBoard{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   height: 460px;
-  width: 480px;
-  margin: auto;
+  width: 612px;
+  border: 5px solid black;
+  margin: 0 auto;
+  background-color: #e6faff;
+}
+#outcomeBoard{
+  display: flex;
+  height: 460px;
+  width: 612px;
+  border: 5px solid black;
+  margin: 0 auto;
+  background-color: #e6faff;
+  font-size: 100px;
+  align-items: center;
+  justify-content: center;
 }
 #square{
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px dashed black;
+  border: 2px solid black;
   height: 150px;
-  width: 150px;
+  width: 200px;
+  font-size: 90px;
 }

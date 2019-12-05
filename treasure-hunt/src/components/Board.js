@@ -9,7 +9,8 @@ class Board extends Component{
       spaces: ["?", "?", "?", "?", "?", "?", "?", "?", "?"],
       // treasureLocation and bombLocation begin at null
       treasureLocation: null,
-      bombLocation: null
+      bombLocation: null,
+      gameOver: false
     }
   }
   componentDidMount = () => {
@@ -33,7 +34,9 @@ class Board extends Component{
     this.setState({
       spaces: ["?", "?", "?", "?", "?", "?", "?", "?", "?"],
       treasureLocation: null,
-      bombLocation: null
+      bombLocation: null,
+      gameOver: false,
+      gameOutcome: null
     })
     // calling componentDidMount to give new values to the bomb and treasure locations
     this.componentDidMount()
@@ -41,19 +44,30 @@ class Board extends Component{
 
   handleIconLocations = (index) => {
     // destructuring values out of state
-    const { spaces, treasureLocation, bombLocation } = this.state
+    const { spaces, treasureLocation, bombLocation, gameOver } = this.state
     // evaluations for the index and treasure/bomb locations
-    if(treasureLocation === index){
+    // each evaluation can only be true if the gameOver value is false, after the user finds the tresure or the bomb gameOver is updated to true
+    if(treasureLocation === index && gameOver === false){
       // if the treasure it at the clicked index, update the array with the icon replacing the ?
       spaces[index] = "💍"
       // set state with the icon in the array
-      this.setState({ spaces: spaces})
-    } else if( bombLocation === index){
+      this.setState({
+        spaces: spaces,
+      })
+      setTimeout(() => {
+        this.setState({ gameOver: true, gameOutcome: "You win! 😃" })
+      }, 500)
+    } else if( bombLocation === index && gameOver === false){
       // if the bomb it at the clicked index, update the array with the icon replacing the ?
       spaces[index] = "💣"
       // set state with the icon in the array
-      this.setState({ spaces: spaces})
-    } else {
+      this.setState({
+        spaces: spaces,
+      })
+      setTimeout(() => {
+        this.setState({ gameOver: true, gameOutcome: "You lose ☹️" })
+      }, 500)
+    } else if (gameOver === false){
       spaces[index] = "🌴"
       this.setState({ spaces: spaces})
     }
@@ -77,12 +91,19 @@ class Board extends Component{
     })
     return(
       <div>
-        <h1>Treasure Hunt!</h1>
+        <h1>Treasure Hunt Challenge!</h1>
         {/* rendering the variable name that contains the mapped component calls - the component calls are part of an array so even though the <Square /> operate indepenently of each other they are part of an array so they have a defined index */}
-        <div id="gameBoard">
+        { !this.state.gameOver &&
+          <div id="gameBoard">
           { square }
-        </div>
+          </div>
+        }
         {/* button that will restart the game by resetting the initial state */}
+        { this.state.gameOver &&
+          <div id="outcomeBoard">
+            { this.state.gameOutcome }
+          </div>
+        }
         <button onClick={ this.restartGame }>
           Restart Game
         </button>

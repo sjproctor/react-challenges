@@ -6,7 +6,7 @@ class Board extends Component{
     super()
     this.state = {
       // the spaces array represents the 9 squares on the board
-      spaces: ["?", "?", "?", "?", "?", "?", "?", "?", "?"],
+      spaces: Array(9).fill("?"),
       // treasureLocation and bombLocation begin at null
       treasureLocation: null,
       bombLocation: null,
@@ -35,7 +35,7 @@ class Board extends Component{
   restartGame = () => {
     // setting state to the initial values onClick to reset the game board
     this.setState({
-      spaces: ["?", "?", "?", "?", "?", "?", "?", "?", "?"],
+      spaces: Array(9).fill("?"),
       treasureLocation: null,
       bombLocation: null,
       gameOver: false,

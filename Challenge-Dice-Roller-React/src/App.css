@@ -7,6 +7,10 @@ h1{
   font-size: 3em;
   margin: 1em;
 }
+button{
+  padding: 1em;
+  border: 2px solid black;
+}
 #dice-img{
   width: 300px;
   height: 300px;

@@ -3,7 +3,14 @@ body{
   text-align: center;
   font-family: 'Amaranth', sans-serif;
 }
+button{
+  padding: 1em;
+  margin: 1em;
+  border: 1px solid black;
+  font-weight: bold;
+}
 #box-holder{
+  /* flexbox keeps the multiple colorboxes organized */
   display: flex;
   flex-direction: row;
   justify-content: space-around;

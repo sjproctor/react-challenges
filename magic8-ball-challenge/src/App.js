@@ -48,7 +48,7 @@ class App extends React.Component {
   }
 
   handleRestart = () => {
-    // need "value={ this.state.question }" in the form to clear the form when resetting state
+    // need "value={ this.state.question }" in the input to clear the users text when resetting state
     // sets the original state onClick to restart the game
     this.setState({
       answer: null,

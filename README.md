@@ -4,6 +4,7 @@
 
 - [Intro to React Components](./react-intro-challenge)
 - [Challenge: Magic8 Ball](./magic8-ball-challenge)
+- [Challenge: Pig Latin](./pig-latin-challenge)
 - [Create React App](./create-react-app-challenge)
 - [React State: Colorbox Challenge](./color-box-challenge)
 - [React State: Lightbulb Challenge](./light-bulb-challenge)

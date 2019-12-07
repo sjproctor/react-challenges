@@ -2,17 +2,19 @@ import React from 'react';
 import './App.css';
 
 class App extends React.Component {
-  constructor(props){
-    super(props)
+  constructor(){
+    super()
+    // a state object that holds the user input and the phrase to be displayed as pig latin
     this.state = {
-      phrase: '',
-      phraseTranslated: 'Your translated sentence here!'
+      phrase: "",
+      phraseTranslated: "Your translated sentence here!"
     }
   }
 
-  translate = (event) => {
+  translate = (e) => {
     // prevents the browser from refreshing the page after the function runs
-    event.preventDefault()
+    // e is short for DOM event (a standard abbreviation)
+    e.preventDefault()
 
     // words to be translated coming from setting state in the handleChange method
     let userInput = this.state.phrase
@@ -88,14 +90,22 @@ class App extends React.Component {
 
     })
 
-    // joining the array back to a string of words and updating state
+    // joining the array back to a string of words and updating the state of the translated phrase
     let translatedWords = translatedWordsArray.join(" ")
-    this.setState({phraseTranslated: translatedWords})
-
+    this.setState({ phraseTranslated: translatedWords })
   }
 
-  handleChange = (event) => {
-    this.setState({phrase: event.target.value})
+  handleChange = (e) => {
+    // method that takes the user input and updates state
+    this.setState({ phrase: e.target.value })
+  }
+
+  restartGame = () => {
+    // need "value={ this.state.question }" in the input to clear the users text when resetting state
+    this.setState({
+      phrase: "",
+      phraseTranslated: "Your translated sentence here!"
+    })
   }
 
   render() {
@@ -104,20 +114,28 @@ class App extends React.Component {
         <h1>Pig Latin Translator</h1>
           <div id="pigImage">
             <img
-              src='https://lh3.googleusercontent.com/QvvsRY5ShwDNEouVMK8_z7QCwS3grkgd4mzZOlom23Hurralk54ObvsyEMM8ZSNR5pEFBeBMzltzEEcgi2llYJnhXTuXClN3njmMjtw3vgn8Go5jr40fHMNzfI64eYRrnHbZUutxCA=w2400'
+              src="https://lh3.googleusercontent.com/QvvsRY5ShwDNEouVMK8_z7QCwS3grkgd4mzZOlom23Hurralk54ObvsyEMM8ZSNR5pEFBeBMzltzEEcgi2llYJnhXTuXClN3njmMjtw3vgn8Go5jr40fHMNzfI64eYRrnHbZUutxCA=w2400"
               alt="pig with butcher cut names in pig latin"
               id="butcherPig"
-            >
-            </img>
+            />
           </div>
           <div className="box">
             <h4>Enter phrase to be translated:</h4>
-            <form className="info" onSubmit={this.translate}>
-              <input id="inputPhrase" onChange={this.handleChange} />
+            <div className="info">
+            {/* user input field - every DOM event that happens in the input will call the handleChange method and update state */}
+              <input
+                id="inputPhrase"
+                onChange={ this.handleChange }
+                value={ this.state.phrase }
+              />
               <br />
-              <input className="button" type="submit" value="Submit" />
-            </form>
-            <p>{this.state.phraseTranslated}</p>
+              {/* button that called the translate method */}
+              <button onClick={ this.translate }>Submit</button>
+              {/* button that resets the game */}
+              <button onClick={ this.restartGame }>Clear</button>
+            </div>
+            {/* where the translated phrase will display */}
+            <p>{ this.state.phraseTranslated }</p>
           </div>
         <footer>
           Coded by SARAH!

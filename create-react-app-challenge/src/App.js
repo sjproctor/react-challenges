@@ -1,10 +1,15 @@
+// importing the component method from react
 import React, { Component } from 'react';
+// importing the CSS file
 import './App.css';
 
 class App extends Component{
+  // The render method encapsulates the information being shown on the browser
   render(){
+    // inside the return are JSX tags, the return will only display one tag so everything must be wrapped in a div or other parent tag
     return(
       <div>
+      {/* calling all the components to be rendered in the browser by App */}
         <Header />
         <Content />
         <MoreContent />
@@ -18,6 +23,7 @@ class App extends Component{
 
 class Header extends Component{
   render(){
+    // inside the return are JSX tags, the return will only display one tag so everything must be wrapped in a div or other parent tag
     return(
       <h1>About US!</h1>
     )

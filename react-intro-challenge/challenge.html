@@ -11,12 +11,16 @@
   <body>
 
     <div id="react-container"></div>
-
+    <!-- In this example we are rendering react components in an HTML page to focus on the component calls without the react file structure -->
     <script type="text/babel">
       class HelloReact extends React.Component{
+        // HelloReact is a JavaScript class
         render(){
+          // The render method encapsulates the information being shown on the browser
           return(
+            // inside the return are JSX tags, the return will only display one tag so everything must be wrapped in a div or other parent tag
             <div>
+              {/* calling other components - just like a function call */}
               <Header />
               <Content />
               <Footer />

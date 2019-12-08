@@ -1,0 +1,14 @@
+body{
+  margin: 1em;
+  text-align: center;
+}
+img{
+  height: 5em;
+}
+input{
+  padding: 1em;
+  width: 20em;
+}
+#robot-outcome{
+  margin: 1em;
+}

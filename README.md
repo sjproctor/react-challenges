@@ -9,6 +9,7 @@
 - [Challenge: Colorbox](./color-box-challenge)
 - [Challenge: Lightbulb](./light-bulb-challenge)
 - [Challenge: Dice Roller](./dice-roller-challenge)
+- [Challenge: Listening Robot](./listening-robot-challenge)
 - [Challenge: Madlibs](./madlibs)
 
 

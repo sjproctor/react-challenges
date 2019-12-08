@@ -5,6 +5,7 @@ class GoodRobot extends Component{
     return(
       <div id="good">
         <h3>Good Robot</h3>
+        {/* GoodRobot takes <userInput={ userInput }> that is passed as props and displays the input */}
         <h4>I hear you saying { this.props.userInput }. Is that correct?</h4>
       </div>
     )

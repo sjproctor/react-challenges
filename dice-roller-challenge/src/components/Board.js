@@ -54,7 +54,7 @@ class Board extends Component{
     const { currentPic, diceLog } = this.state
     return(
       <div id="board-container">
-      {/* calls all the components that will be rendered on the Board and passes appropriate information and methods as props */}
+      {/* calls all the components that will be rendered on the Board and passes appropriate information and methods as props to the child components */}
         <Dice
           roll={ this.handleRollClick }
           currentPic={ currentPic }

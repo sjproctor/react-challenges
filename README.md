@@ -8,11 +8,15 @@
 - [Create React App](./create-react-app-challenge)
 - [Challenge: Colorbox](./color-box-challenge)
 - [Challenge: Lightbulb](./light-bulb-challenge)
+- [Challenge: Dice Roller](./dice-roller-challenge)
 - [Challenge: Madlibs](./madlibs)
 
 
 ## React Set Up
--
+- Run `yarn create react-app <app-name>`
+- cd into the project
+- Using the command to create a react app generates a boiler plate app and file structure
+- Delete boiler plate code in App.js to start project
 
 ## Basic React Info
 - index.html is rendered in the browser

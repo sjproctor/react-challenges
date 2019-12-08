@@ -1,4 +1,4 @@
-# Roll the Dice
+# Dice Roller Challenge
 
 For this exercise,  consider the following code:
 

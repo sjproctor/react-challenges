@@ -1,4 +1,4 @@
-# Challenge: Light Bulb
+# Light Bulb Challenge
 
 ## User Stories
 - As a user, I can see a square on the screen with the word `off` in the middle.

@@ -10,7 +10,7 @@
 - [Challenge: Lightbulb](./light-bulb-challenge)
 - [Challenge: Dice Roller](./dice-roller-challenge)
 - [Challenge: Listening Robot](./listening-robot-challenge)
-- [Challenge: Madlibs](./madlibs)
+- [Challenge: Madlibs](./madlibs-challenge)
 
 
 ## React Set Up

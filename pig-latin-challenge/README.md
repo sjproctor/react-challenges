@@ -1,4 +1,4 @@
-# Pig Latin Activity
+# Pig Latin Challenge
 
 In this activity we're going to create a Pig Latin application.  We'll use a React application as a template to run the code that we are going to write for Pig Latin.
 

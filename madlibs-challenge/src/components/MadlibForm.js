@@ -9,6 +9,7 @@ class MadlibForm extends Component{
     }
   }
   handleChange = (e) => {
+    // e is short for DOM event (a standard abbreviation)
     // destructures form out of state
     const { form } = this.state
     // destructures each name of inputs out of the form object and assigns the value of the user input to each name
@@ -20,6 +21,7 @@ class MadlibForm extends Component{
     // gets the handleFormUpdate from App.js that was passed as props to the MadlibForm component and updates the form in state and handles the method the changes the showStory key to true
     this.props.onSubmit(this.state.form)
   }
+
   render(){
     return(
       <>
@@ -134,10 +136,10 @@ class MadlibForm extends Component{
             <br />
           </div>
           <button
-          onClick={ this.handleSubmit }
-          id="submitButton"
+            onClick={ this.handleSubmit }
+            id="submitButton"
           >
-          Submit
+            Submit
           </button>
           {/* button that calls the handleSubmit function that is passed handleFormUpdate as onSubmit via props from App.js which displays the story (sets the state of showStory to true) and updates the form values in the parent state object*/}
           </main>

@@ -13,7 +13,9 @@ class Board extends Component{
       // gameOver is initially set to false and will update to true when the game is over
       gameOver: false,
       // game outcome is null and will update with a winner or loser
-      gameOutcome: null
+      gameOutcome: null,
+      // starting the counter at 5
+      counter: 5
     }
   }
   componentDidMount = () => {
@@ -39,7 +41,8 @@ class Board extends Component{
       treasureLocation: null,
       bombLocation: null,
       gameOver: false,
-      gameOutcome: null
+      gameOutcome: null,
+      counter: 5
     })
     // calling componentDidMount to give new values to the bomb and treasure locations
     this.componentDidMount()
@@ -47,42 +50,59 @@ class Board extends Component{
 
   handleIconLocations = (index) => {
     // destructuring values out of state
-    const { spaces, treasureLocation, bombLocation, gameOver } = this.state
-    // evaluations for the index and treasure/bomb locations
-    // each evaluation can only be true if the gameOver value is false, after the user finds the tresure or the bomb gameOver is updated to true
-    if(treasureLocation === index && gameOver === false){
-      // if the treasure it at the clicked index, update the array with the icon replacing the ? with a treasure emoji
-      spaces[index] = "💍"
-      // set state with the icon in the array
+    const { spaces, treasureLocation, bombLocation, gameOver, counter } = this.state
+    // creates a variable that decrements on each click
+    let countDown = counter-1
+    // outer conditional statement that determines if the counter still has a positive value
+    if(countDown > 0){
+      // evaluations for the index and treasure/bomb locations
+      // each evaluation can only be true if the gameOver value is false, after the user finds the tresure or the bomb gameOver is updated to true
+      if(treasureLocation === index && gameOver === false){
+        // if the treasure it at the clicked index, update the array with the icon replacing the ? with a treasure emoji
+        spaces[index] = "💍"
+        // set state with the icon in the array
+        this.setState({
+          spaces: spaces,
+        })
+        // set a delay on ending the game and displaying the winning message so the user can see the emoji
+        setTimeout(() => {
+          this.setState({
+            gameOver: true,
+            gameOutcome: "You win! 😃"
+          })
+        }, 500)
+      // each evaluation can only be true if the gameOver value is false, after the user finds the tresure or the bomb gameOver is updated to true
+      } else if(bombLocation === index && gameOver === false){
+        // if the bomb it at the clicked index, update the array with the icon replacing the ?
+        spaces[index] = "💣"
+        // set state with the icon in the array
+        this.setState({
+          spaces: spaces,
+        })
+        // set a delay on ending the game and displaying the losing message so the user can see the emoji
+        setTimeout(() => {
+          this.setState({ gameOver: true, gameOutcome: "You lose ☹️" })
+        }, 500)
+      // if the square clicked is anything but the treasure or bomb it will become a tree as long as the gameOver is still false
+      } else if(gameOver === false){
+        spaces[index] = "🌴"
+        this.setState({
+          spaces: spaces,
+          counter: countDown
+        })
+      }
+    } else {
+      // if the counter is out of turns gameOver is updated to true
       this.setState({
-        spaces: spaces,
+        gameOver: true,
+        gameOutcome: "Out of turns, you lose ☹️"
       })
-      // set a delay on ending the game and displaying the winning message so the user can see the emoji
-      setTimeout(() => {
-        this.setState({ gameOver: true, gameOutcome: "You win! 😃" })
-      }, 500)
-    // each evaluation can only be true if the gameOver value is false, after the user finds the tresure or the bomb gameOver is updated to true
-    } else if( bombLocation === index && gameOver === false){
-      // if the bomb it at the clicked index, update the array with the icon replacing the ?
-      spaces[index] = "💣"
-      // set state with the icon in the array
-      this.setState({
-        spaces: spaces,
-      })
-      // set a delay on ending the game and displaying the losing message so the user can see the emoji
-      setTimeout(() => {
-        this.setState({ gameOver: true, gameOutcome: "You lose ☹️" })
-      }, 500)
-    // if the square clicked is anything but the treasure or bomb it will become a tree as long as the gameOver is still false
-    } else if (gameOver === false){
-      spaces[index] = "🌴"
-      this.setState({ spaces: spaces})
     }
   }
 
   render(){
-    // destructuring
-    let { spaces } = this.state
+    // destructuring values out of state
+    let { spaces, counter } = this.state
     // mapping over the spaces array from the state object and assigning that mapped functionality to a variable
     let square = spaces.map((value, index) => {
       // returning the component call as the new value for each index in the spaces array - in JSX the return value must be wrapped in ()
@@ -102,14 +122,20 @@ class Board extends Component{
         {/* rendering the variable name that contains the mapped component calls - the component calls are part of an array so even though the <Square /> operate indepenently of each other they are part of an array so they have a defined index */}
         {/* the mapped squares and the game board will only render as long as the game is gameOver is still false */}
         { !this.state.gameOver &&
-          <div id="gameBoard">
-          { square }
+          <div>
+            <h3>Counter: { counter }</h3>
+            <div id="gameBoard">
+            { square }
+            </div>
           </div>
         }
         {/* gameOutcome will only render when gameOver is true */}
         { this.state.gameOver &&
-          <div id="outcomeBoard">
+          <div>
+            <h3>Counter: 0</h3>
+            <div id="outcomeBoard">
             { this.state.gameOutcome }
+            </div>
           </div>
         }
         {/* button that will restart the game by resetting the initial state */}

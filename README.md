@@ -11,6 +11,7 @@
 - [Challenge: Dice Roller](./dice-roller-challenge)
 - [Challenge: Listening Robot](./listening-robot-challenge)
 - [Challenge: Madlibs](./madlibs-challenge)
+- [Challenge: Treasure Hunt](./treasure-hunt-challenge)
 
 
 ## React Set Up

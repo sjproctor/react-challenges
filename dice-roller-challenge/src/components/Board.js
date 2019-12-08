@@ -4,13 +4,13 @@ import Dice from './Dice'
 import Log from './Log'
 import RestartButton from './RestartButton'
 // imports for the dice images (I stored the images in a folder called images for organization)
-import dice from '../images/Dice.png'
-import dice1 from '../images/Dice-1.png'
-import dice2 from '../images/Dice-2.png'
-import dice3 from '../images/Dice-3.png'
-import dice4 from '../images/Dice-4.png'
-import dice5 from '../images/Dice-5.png'
-import dice6 from '../images/Dice-6.png'
+import dice from '../images/dice.png'
+import dice1 from '../images/dice-1.png'
+import dice2 from '../images/dice-2.png'
+import dice3 from '../images/dice-3.png'
+import dice4 from '../images/dice-4.png'
+import dice5 from '../images/dice-5.png'
+import dice6 from '../images/dice-6.png'
 
 class Board extends Component{
   // Board is a smart component that will hold state, in this project Board is the only smart component

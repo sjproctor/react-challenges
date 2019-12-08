@@ -12,6 +12,7 @@
 - [Challenge: Listening Robot](./listening-robot-challenge)
 - [Challenge: Madlibs](./madlibs-challenge)
 - [Challenge: Treasure Hunt](./treasure-hunt-challenge)
+- [Challenge: Tic Tac Toe](./tic-tac-toe-challenge)
 
 
 ## React Set Up

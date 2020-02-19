@@ -23,40 +23,49 @@ let square = this.state.board.map((value, index) => {
 
 ### Square
 - add an onClick to the square div
-onClick={ this.handleClick }
+`onClick={ this.handleClick }`
 
 - add a handleClick
+```
 handleClick = () => {
   alert("hey")
 }
-
+```
 ### Board
 - create method
+```
 handleLocations = (index) => {
   alert(index)
 }
-- pass index and method into <Square />
+```
+- pass index and method into `<Square />`
+```
 <Square
   index={ index }
   handleLocations={ this.handleLocations }
 />
+```
 
 ### Square
 - remove alert
-this.props.handleLocations(this.props.index)
+`this.props.handleLocations(this.props.index)`
 
 ### Styling
 - on square
+```
   display: flex;
   justify-content: center;
   align-items: center;
+```
 - on board
+```
 #board{
   display: flex;
   flex-wrap: wrap;
   width: 620px;
   margin: 0 auto;
 }
+```
 
 # Treasure Hunt Challenge
 

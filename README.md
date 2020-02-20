@@ -1,4 +1,4 @@
-# Unit 3: React Challenges
+# Unit 2 and Unit 3: React Challenges
 
 ## Challenges for React at LEARN Academy, San Diego
 
@@ -11,6 +11,7 @@
 - [Challenge: Dice Roller](./dice-roller-challenge)
 - [Challenge: Listening Robot](./listening-robot-challenge)
 - [Challenge: Madlibs](./madlibs-challenge)
+- [Challenge: Treasure Hunt Set Up Only](./treasure-hunt-setup-only)
 - [Challenge: Treasure Hunt](./treasure-hunt-challenge)
 - [Challenge: Tic Tac Toe](./tic-tac-toe-challenge)
 

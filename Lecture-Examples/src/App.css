@@ -1,0 +1,16 @@
+#square{
+  border: 2px solid black;
+  height: 200px;
+  width: 200px;
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#board{
+  display: flex;
+  flex-wrap: wrap;
+  width: 620px;
+  margin: 0 auto;
+}

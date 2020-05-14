@@ -11,9 +11,12 @@ button{
   margin: 1em;
   background-color: #e6faff;
   border: 2px solid black;
+  margin-top: 70px;
 }
 .statusDiv{
   font-size: 30px;
+  z-index: 1;
+  margin-bottom: 80px;
 }
 #outcomeBoard{
   display: flex;
@@ -24,13 +27,21 @@ button{
   background-color: #e6faff;
   align-items: center;
   justify-content: center;
+  z-index: 1;
+  position: relative;
+
+}
+#board{
+  height: 600px;
+  z-index: -1;
+  position: absolute;
 }
 #square{
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid black;
   height: 150px;
   width: 150px;
-  font-size: 90px;
+  font-size: 60px;
+  z-index: 1;
 }

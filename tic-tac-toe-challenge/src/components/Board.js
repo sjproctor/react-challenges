@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Square from "./Square"
+import Square from './Square'
+import board from './tic-tac-toe.jpg'
 
 class Board extends Component{
   constructor(){
@@ -102,6 +103,7 @@ class Board extends Component{
         }
         {/* rendering the array of Square component calls */}
         <div id="outcomeBoard">
+        <img src={ board } id="board"/>
           { mappedGameBoard }
         </div>
         {/* restart button calling the restartGame */}

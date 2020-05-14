@@ -5,15 +5,15 @@ class Board extends Component{
   constructor(props){
     super(props)
     this.state = {
-      spaces: ["?", "?", "?", "?", "?", "?", "?", "?", "?"],
+      squares: ["?", "?", "?", "?", "?", "?", "?", "?", "?"],
       treasureLocation: null,
       bombLocation: null
     }
   }
 
   componentDidMount = () => {
-    let treasure = Math.floor(Math.random()*this.state.spaces.length)
-    let bomb = Math.floor(Math.random()*this.state.spaces.length)
+    let treasure = Math.floor(Math.random()*this.state.squares.length)
+    let bomb = Math.floor(Math.random()*this.state.squares.length)
     this.setState({ treasureLocation: treasure, bombLocation: bomb})
   }
 
@@ -22,7 +22,7 @@ class Board extends Component{
   }
 
   render(){
-    let square = this.state.spaces.map((value, index) => {
+    let square = this.state.squares.map((value, index) => {
       return(
         <Square
           key={ index }

@@ -2,7 +2,7 @@
 
 ### Initial Setup Already Done
 
-I'm going to build out a bit more from where I left you all yesterday. I'm going to hit a couple points that I think will help you have a better understanding of your code.
+I'm going to build out a bit more from the setup code where I left you all yesterday. I'm going to hit a couple points that I think will help you have a better understanding of your code.
 
 As always, with these challenges, I'm showing you one way to solve the problem. This is not the "correct" way, it is just my way. I saw lots of really creative problem solving yesterday and I love it.
 
@@ -12,7 +12,7 @@ I want to talk about 4 things:
 
 1. I want to show you a little flexbox action for pretty quick baseline styling for making a gameboard out of all our square components.
 
-2. Then, I want to cover how we get content from the child component back "up river" to App.js. I think everyone has already accomplished this in your code, but there is nothing wrong with seeing it one one time. This process is called passing functional props and it is a pretty heavy concept.
+2. Then, I want to cover how we get content from the child component back "up river" to App.js. I think everyone has already accomplished this in your code, but there is nothing wrong with seeing it one one time. This process is called passing functional props and it is a pretty heavy concept. So if it still isn't sinking in, that is very okay. Just keep practicing and keep walking through this process over and over.
 
 3. Then I want to talk about another React lifecycle method called componentDidMount(). We have already been using the constructor and the renders methods which are also React lifecycle methods. So we can add another one to the list that I think will be pretty handy for this project.
 
@@ -121,7 +121,7 @@ So now that I have a boolean value that is determined by my user clicking the wi
 
 So I am going to wrap my p-tag in curly braces so that I can escape the JSX and use JavaScript code. And here I am going to set up our old friend, the logical operator. So think of making an evaluation in an if statement. The double && requires that both sides of the expression are true in order for the entire expression to be true, right? So think about this p-tag as just a sting. In JavaScript type coercion land, a sting with content is a truthy value. So that side of the expression is true. Then the value of winning coming from state starts false - so the expression is false. Then we update state and winning becomes true making the entire expression true. So there you go, the poor man's if statement.
 
-Alright, that is all I have for you. You have until lunch to work. After lunch we will do whiteboarding and then our second round of one on ones. Then you have the rest of the day.
+Alright, that is all I have for you. You have until lunch to work. After lunch we will do whiteboarding and then our second round of one on ones. Then you have the rest of the day until checkout. We are here if you need anything. I'd like to see everyone moving on to tic-tac-toe at some point today. The base logic is really similar. So once you have Treasure Hunt workable, I encourage you to explore another challenge.
 
 
 

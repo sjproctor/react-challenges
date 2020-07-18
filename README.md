@@ -1,6 +1,8 @@
 # Unit 2 and Unit 3: React Challenges
 
-## Challenges for React at LEARN Academy, San Diego
+**Challenges for React at LEARN Academy, San Diego**
+Each project has a README with individual user stories for the project.   
+WIP: Always updating and evolving, striving to be better.
 
 - [Intro to React Components](./react-intro-challenge)
 - [Challenge: Magic8 Ball](./magic8-ball-challenge)
@@ -11,16 +13,17 @@
 - [Challenge: Dice Roller](./dice-roller-challenge)
 - [Challenge: Listening Robot](./listening-robot-challenge)
 - [Challenge: Madlibs](./madlibs-challenge)
-- [Challenge: Treasure Hunt Set Up Only](./treasure-hunt-setup-only)
+- [Starter Code: Treasure Hunt Setup](./treasure-hunt-setup)
 - [Challenge: Treasure Hunt](./treasure-hunt-challenge)
 - [Challenge: Tic Tac Toe](./tic-tac-toe-challenge)
 
 
 ## React Set Up
-- Run `yarn create react-app <app-name>`
+- `$ yarn create react-app <app-name>`
 - cd into the project
 - Using the command to create a react app generates a boiler plate app and file structure
 - Delete boiler plate code in App.js to start project
+- To start the server and display the application in the browser run the command `$ yarn start`
 
 ## Basic React Info
 - index.html is rendered in the browser

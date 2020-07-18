@@ -8,8 +8,8 @@ import robot from './robot.png'
 import './App.css'
 
 class App extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     // creating a state object to hold the user input
     this.state = {
       userInput: "",
@@ -19,7 +19,7 @@ class App extends Component{
   robot = (e) => {
     // sets the state as the value of the input field
     // e is short for DOM event (a standard abbreviation)
-    this.setState({ userInput: e.target.value})
+    this.setState({ userInput: e.target.value })
   }
 
   render(){

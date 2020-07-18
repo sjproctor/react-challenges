@@ -1,6 +1,6 @@
 ## Challenge
 
-The goal of the following challenge is to for you to practice nesting components and getting familiar with class based component syntax.
+The goal of the following challenge is for you to practice nesting components and getting familiar with class based component syntax.
 
 Here are your stories:
 

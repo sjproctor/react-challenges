@@ -2,7 +2,7 @@ body{
   margin: 1em;
   text-align: center;
   font-family: 'Satisfy', cursive;
-  background-image: url('./components/island.png');
+  background-image: url('./assets/island.png');
   background-repeat: no-repeat;
 }
 button{

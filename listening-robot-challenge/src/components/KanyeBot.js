@@ -5,8 +5,8 @@ class KanyeBot extends Component{
   kanyeListening = (userInput) => {
     // the userInput comes from this.props.userInput that comes from <userInput={ userInput }> passed as props from the App.js
     return userInput.split("").map(value => {
-      // splits userInput, maps over the array, replaces the values with "Beyonce"
-      return value = "Beyonce "
+      // splits userInput, maps over the array, replaces the values with "Me!"
+      return "Me! "
     })
   }
 

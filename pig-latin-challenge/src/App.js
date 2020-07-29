@@ -37,10 +37,12 @@ class App extends React.Component {
       let o = currentWord.indexOf("o")
       let u = currentWord.indexOf("u")
 
-      // check for the first instance of y, only assign it a variable if y is not the first letter of the word, y variable has to be 'var' so it is available to the function scope outside the conditional statement
+      // check for the instance of y, if the index of y is the first thing in the array then there are no others vowels present in the word
+      // y variable has to be 'var' so it is available to the function scope outside the conditional statement
       if(currentWord.indexOf("y") !== 0){
         var y = currentWord.indexOf("y")
       } else {
+        // if the index of y is not at the first index of the array, set it to -1 so it won't be a part of the vowels array
         y = -1
       }
 

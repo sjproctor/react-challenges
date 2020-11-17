@@ -15,10 +15,8 @@ class App extends Component{
   addColorBox = () => {
     // destructures colorBoxArray out of state
     let { colorBoxArray } = this.state
-    // pushes a ColorBox component call into the array in state
-    colorBoxArray.push(<ColorBox />)
-    // updates state with the new array
-    this.setState({ colorBoxArray: colorBoxArray })
+    // updates state with the existing content and adds one component call
+    this.setState({ colorBoxArray: [...colorBoxArray, <ColorBox />] })
   }
 
   removeColorBox = () => {
@@ -34,20 +32,21 @@ class App extends Component{
     // destructures colorBoxArray out of state
     let { colorBoxArray } = this.state
     return(
-      <div>
+      <>
         <h1>Color Box Challenge</h1>
         <br />
-          <main>
-            {/* button that calls the addColorBox onClick */}
-            <button onClick={ this.addColorBox }>Add a Color Box</button>
-            {/* button that calls the removeColorBox onClick */}
-            <button onClick={ this.removeColorBox }>Remove a Color Box</button>
-            <div id="box-holder">
-              {/* renders the content of the colorBoxArray */}
-              { colorBoxArray }
-            </div>
-          </main>
-      </div>
+        <main>
+          <button onClick={ this.addColorBox }>Add a Color Box</button>
+          <button onClick={ this.removeColorBox }>Remove a Color Box</button>
+          <div id="box-holder">
+            { colorBoxArray.map((value, index) => {
+              return (
+                <div key={ index }>{ value }</div>
+              )
+            }) }
+          </div>
+        </main>
+      </>
     )
   }
 }

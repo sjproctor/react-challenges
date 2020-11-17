@@ -1,150 +1,128 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 
-class App extends React.Component {
-  constructor(){
-    super()
-    // a state object that holds the user input and the phrase to be displayed as pig latin
+class App extends Component {
+  constructor(props){
+    super(props)
+    // the state object holds information that can be displayed to the user and updated throughout the program
     this.state = {
-      phrase: "",
-      phraseTranslated: "Your translated sentence here!"
+      // "phrase" is the text entered by the user - right now there are some test words hard coded to make the process of testing your code a bit faster and easier
+      // ACTION ITEM: when you are ready for your full user experience, delete the test words so phrase is assigned an empty string
+      phrase: "echo through yummy squeal queen fry",
+      // "phraseTranslated" is what the user will see appear on the page as Pig Latin, it starts as the preset message and updates when your user clicks the "submit" button
+      phraseTranslated: "This is where your translated sentence will appear."
     }
   }
 
-  translate = (e) => {
-    // prevents the browser from refreshing the page after the function runs
-    // e is short for DOM event (a standard abbreviation)
-    e.preventDefault()
+  // The "myPigLatinCodeHere" function is where you will put your logic to convert the sentence entered by the user to Pig Latin
 
-    // words to be translated coming from setting state in the handleChange method
-    let userInput = this.state.phrase
+  myPigLatinCodeHere = () => {
+    // the variable "userInput" will contain the text input from the user modified into an array of words
+    // no need to change this variable
+    let userInput = this.state.phrase.split(" ")
     console.log("userInput:", userInput)
 
-    // create a new array to store the translated words
-    let translatedWordsArray = []
+    // now that we have an array of words, we can map over the array and access each word
+    let translatedWordsArray = userInput.map(currentWord => {
+      // ACTION ITEM: use "currentWord" as a starting point for your code
+      console.log("currentWord:", currentWord)
 
-    // split the words into an array and create uniform casing
-    let splitUserInput = userInput.toLowerCase().split(" ")
-    console.log("splitUserInput:", splitUserInput)
-
-    splitUserInput.map(currentWord => {
-    console.log("currentWord:", currentWord)
-
-      // assigning the index of each vowel as a variable
-      let a = currentWord.indexOf("a")
-      let e = currentWord.indexOf("e")
-      let i = currentWord.indexOf("i")
-      let o = currentWord.indexOf("o")
-      let u = currentWord.indexOf("u")
-
-      // check for the instance of y, if the index of y is the first thing in the array then there are no others vowels present in the word
-      // y variable has to be 'var' so it is available to the function scope outside the conditional statement
-      if(currentWord.indexOf("y") !== 0){
-        var y = currentWord.indexOf("y")
-      } else {
-        // if the index of y is not at the first index of the array, set it to -1 so it won't be a part of the vowels array
-        y = -1
-      }
-
-      // store the vowel variables in array, each vowel variable has the index of the vowel in the current word
-      let vowels = [a, e, i, o, u, y]
-
-      // filter out the indexes of vowels that don't exist in the word, if the vowel doesn't exist it would return a -1, returns an array of indexes
-      let existingVowels = vowels.filter(eachVowel => {
-        return eachVowel >= 0
+      let vowelsArray = currentWord.split("").filter(vowel => {
+        return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
       })
-      console.log("existingVowels:", existingVowels)
+      console.log("vowelsArray:", vowelsArray)
 
-      // sorts the array of vowels to be in order so the first vowel will be in the first index of the vowels array
-      let sortedVowels = existingVowels.sort()
-      console.log("sortedVowels:", sortedVowels)
+      // your code here!
 
-      // save the index of the first vowel as a variable
-      let firstVowelLocation = sortedVowels[0]
+      // Remember: console.log is your friend :)
+      let firstVowel = vowelsArray[0]
+      console.log("firstVowel:", firstVowel)
+
+      let firstVowelLocation = currentWord.indexOf(firstVowel)
       console.log("firstVowelLocation:", firstVowelLocation)
 
-      // word manipulation logic:
-      // if the location of the first vowel is at index 0, add 'way' and push the word into translatedWordsArray
-      if(firstVowelLocation === 0){
-        return translatedWordsArray.push(`${currentWord}way`)
+      let qChecker = currentWord[firstVowelLocation - 1]
 
-      // if the first vowel is a u check if the letter before is a q
-      } else if(currentWord.charAt(firstVowelLocation) === 'u' && currentWord.charAt(firstVowelLocation - 1) === "q"){
-        // variable containing the word through the 'u'
-        let beginningWord = currentWord.slice(0, firstVowelLocation+1)
-        // variable containing the word after the 'u'
-        let endWord = currentWord.substring(firstVowelLocation+1)
-        console.log("beginningWord:", beginningWord)
-        console.log("endWord:", endWord)
-        // combine the segments of the word in the new order and add 'ay'
-        return translatedWordsArray.push(`${endWord}${beginningWord}ay`)
-
-      // for any other words slice from the beginning of the word up to the first vowel location
+      if(currentWord[0] === firstVowel){
+        return `${currentWord}way`
+      } else if(qChecker === "q" && firstVowel === "u"){
+        let beginningWord = currentWord.substring(0, firstVowelLocation + 1)
+        let endWord = currentWord.substring(firstVowelLocation + 1)
+        return `${endWord}${beginningWord}ay`
+      } else if(firstVowelLocation === -1){
+        let y = currentWord.indexOf("y")
+        let beginningWord = currentWord.substring(0, y)
+        let endWord = currentWord.substring(y)
+        return `${endWord}${beginningWord}ay`
       } else {
-        let beginningWord = currentWord.slice(0, firstVowelLocation)
-        // variable containing the rest of the word from the first vowel to the end
+        let beginningWord = currentWord.substring(0, firstVowelLocation)
         let endWord = currentWord.substring(firstVowelLocation)
-        console.log("beginningWord:", beginningWord)
-        console.log("endWord:", endWord)
-        // combine the segments of the word in the new order and add 'ay'
-        return translatedWordsArray.push(`${endWord}${beginningWord}ay`)
+        return `${endWord}${beginningWord}ay`
       }
-
     })
 
-    // joining the array back to a string of words and updating the state of the translated phrase
+    // joining the array back to a string of translated words
+    // no need to change this variable
     let translatedWords = translatedWordsArray.join(" ")
+    console.log("translatedWords:", translatedWords)
+
+    // the setState method will take your information from "translatedWords" and update the state object that is displayed to the user
+    // no need to change this method
     this.setState({ phraseTranslated: translatedWords })
   }
 
-  handleChange = (e) => {
-    // method that takes the user input and updates state
-    this.setState({ phrase: e.target.value })
-  }
 
   restartGame = () => {
-    // need "value={ this.state.question }" in the input to clear the users text when resetting state
+    // this method restarts the game by setting the original state
+    // ACTION ITEM: when you are ready for your full user experience, delete the test words in phrase so that is assigned an empty string
     this.setState({
-      phrase: "",
-      phraseTranslated: "Your translated sentence here!"
+      phrase: "echo through yummy squeal queen fry",
+      phraseTranslated: "This is where your translated sentence will appear."
     })
   }
 
+  // no need to modify this method
+  setUpPreventDefault = (e) => {
+    // this method prevents React from refreshing the page unnecessarily
+    e.preventDefault()
+    this.myPigLatinCodeHere()
+  }
+
+  // no need to modify this method
+  handleInput = (e) => {
+    // this method takes the input and saves the value in this.state.phrase so we can use the input in our program
+    this.setState({ phrase: e.target.value })
+  }
+
   render() {
+    // inside the return is all our JSX tags
     return (
-      <div>
+      <React.Fragment>
         <h1>Pig Latin Translator</h1>
-          <div id="pigImage">
-            <img
-              src="https://lh3.googleusercontent.com/QvvsRY5ShwDNEouVMK8_z7QCwS3grkgd4mzZOlom23Hurralk54ObvsyEMM8ZSNR5pEFBeBMzltzEEcgi2llYJnhXTuXClN3njmMjtw3vgn8Go5jr40fHMNzfI64eYRrnHbZUutxCA=w2400"
-              alt="pig with butcher cut names in pig latin"
-              id="butcherPig"
-            />
-          </div>
-          <div className="box">
-            <h4>Enter phrase to be translated:</h4>
-            <div className="info">
-            {/* user input field - every DOM event that happens in the input will call the handleChange method and update state */}
-              <input
-                id="inputPhrase"
-                onChange={ this.handleChange }
-                value={ this.state.phrase }
-              />
-              <br />
-              {/* button that called the translate method */}
-              <button onClick={ this.translate }>Submit</button>
-              {/* button that resets the game */}
-              <button onClick={ this.restartGame }>Clear</button>
-            </div>
-            {/* where the translated phrase will display */}
-            <p>{ this.state.phraseTranslated }</p>
-          </div>
-        <footer>
-          Coded by SARAH!
-        </footer>
-      </div>
-    );
+        <img
+          src="https://lh3.googleusercontent.com/QvvsRY5ShwDNEouVMK8_z7QCwS3grkgd4mzZOlom23Hurralk54ObvsyEMM8ZSNR5pEFBeBMzltzEEcgi2llYJnhXTuXClN3njmMjtw3vgn8Go5jr40fHMNzfI64eYRrnHbZUutxCA=w2400"
+          alt="pig with butcher cut names in pig latin"
+          id="butcherPig"
+        />
+        <div id="box">
+          <h4>Enter phrase to be translated:</h4>
+          {/* user input field - every DOM event that happens in the input will call the handleChange method and update state */}
+          <input
+            type="text"
+            id="inputPhrase"
+            onChange={ this.handleInput }
+            value={ this.state.phrase }
+          />
+          <br />
+          {/* button that called the setUpPreventDefault method which calls the myPigLatinCodeHere method */}
+          <button onClick={ this.setUpPreventDefault }>Submit</button>
+          <button onClick={ this.restartGame }>Clear</button>
+        </div>
+        <h3>{ this.state.phraseTranslated }</h3>
+        <footer>Coded by SARAH! </footer>
+      </React.Fragment>
+    )
   }
 }
 
-export default App;
+export default App

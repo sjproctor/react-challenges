@@ -4,8 +4,8 @@ import ColorBox from './components/ColorBox'
 import './App.css'
 
 class App extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     // App.js holds state only for the super stretch challenge of adding and removing boxes, App.js is not involved with any ColorBox logic
     this.state = {
       colorBoxArray: []

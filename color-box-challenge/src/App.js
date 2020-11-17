@@ -38,12 +38,19 @@ class App extends Component{
         <main>
           <button onClick={ this.addColorBox }>Add a Color Box</button>
           <button onClick={ this.removeColorBox }>Remove a Color Box</button>
+          {/*
+            <div id="box-holder">
+              This is a better approach, but the other way works for the level of student's knowledge
+              { colorBoxArray.map((value, index) => {
+                return (
+                  <div key={ index }>{ value }</div>
+                )
+              }) }
+            </div>
+            This way works but will get a warning from react
+          */}
           <div id="box-holder">
-            { colorBoxArray.map((value, index) => {
-              return (
-                <div key={ index }>{ value }</div>
-              )
-            }) }
+            { colorBoxArray }
           </div>
         </main>
       </>

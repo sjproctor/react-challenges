@@ -50,19 +50,22 @@ class App extends Component{
     // destructuring the values out of state
     const { currentPic, diceLog } = this.state
     return(
-      <div id="board-container">
-      {/* calls all the components that will be rendered on the Board and passes appropriate information and methods as props to the child components */}
-        <Dice
-          handleDiceRoll={ this.handleDiceRoll }
-          currentPic={ currentPic }
-        />
-        <RestartButton
-        restartGame={ this.handleRestartClick }
-        />
-        <Log
-          diceLog={ diceLog }
-        />
-      </div>
+      <>
+      <h1>Dice Roller App</h1>
+        <div id="board-container">
+        {/* calls all the components that will be rendered on the Board and passes appropriate information and methods as props to the child components */}
+          <Dice
+            handleDiceRoll={ this.handleDiceRoll }
+            currentPic={ currentPic }
+          />
+          <RestartButton
+          restartGame={ this.handleRestartClick }
+          />
+          <Log
+            diceLog={ diceLog }
+          />
+        </div>
+      </>
     )
   }
 }

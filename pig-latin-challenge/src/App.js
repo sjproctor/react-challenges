@@ -42,6 +42,7 @@ class App extends Component {
       console.log("firstVowelLocation:", firstVowelLocation)
 
       let qChecker = currentWord[firstVowelLocation - 1]
+      console.log("q-checker:", qChecker)
 
       if(currentWord[0] === firstVowel){
         return `${currentWord}way`

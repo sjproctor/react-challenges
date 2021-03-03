@@ -15,7 +15,7 @@ class KanyeBot extends Component{
       <div id="kanye">
         <h3>Kanye Bot</h3>
         {/* KanyeBot takes <userInput={ userInput }> that is passed as props and passes the value as an argument to the kanyeListening method */}
-        <h4>Imma let you finish but { this.kanyeListening(this.props.userInput) }.</h4>
+        <h4>Imma let you finish but { this.kanyeListening(this.props.userInput) }</h4>
       </div>
     )
   }

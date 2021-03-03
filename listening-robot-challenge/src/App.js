@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import GoodRobot from './components/GoodRobot'
 import BadRobot from './components/BadRobot'
 import KanyeBot from './components/KanyeBot'
+import RozBot from './components/RozBot'
 // importing the robot image
 import robot from './robot.png'
 import './App.css'
@@ -49,6 +50,9 @@ class App extends Component{
             userInput={ userInput }
           />
           <KanyeBot
+            userInput={ userInput }
+          />
+          <RozBot
             userInput={ userInput }
           />
         </div>

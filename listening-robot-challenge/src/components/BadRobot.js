@@ -4,15 +4,10 @@ class BadRobot extends Component{
 
   badListening = (userInput) => {
     // the userInput comes from this.props.userInput that comes from <userInput={ userInput }> passed as props from the App.js
+    let blah = ["B", "L", "A", "H", " "]
     let badArray = userInput.split("").map((value, index) => {
       // splits userInput, maps over the array, replaces the values with "BLA"
-      if (index%3 === 0) {
-        return "B"
-      } else if (index%3 === 1) {
-        return "L"
-      } else if (index%3 === 2) {
-        return "A"
-      }
+      return blah[index % blah.length]
     })
     // joins the array back to a string
     return badArray.join("")

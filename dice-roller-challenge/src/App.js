@@ -13,8 +13,8 @@ import dice6 from './assets/dice-6.png'
 import './App.css'
 
 class App extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       // puts all the dice images in an array
       rollImages: [dice1, dice2, dice3, dice4, dice5, dice6],
@@ -29,11 +29,11 @@ class App extends Component{
     // destructure values out of state
     let { rollImages, diceLog } = this.state
     // creates a random number the length of the rollImages array
-    let diceRoll = Math.ceil(Math.random()*rollImages.length)
+    let diceRoll = Math.floor(Math.random() * rollImages.length)
     // variable holding the current image from the array
     let newRoll = rollImages[diceRoll]
     // setting state with the current image and logging the current roll
-    this.setState({ currentPic: newRoll, diceLog: [...diceLog, diceRoll+1] })
+    this.setState({ currentPic: newRoll, diceLog: [...diceLog, diceRoll +1 ] })
   }
 
   handleRestartClick = () => {
@@ -51,19 +51,15 @@ class App extends Component{
     const { currentPic, diceLog } = this.state
     return(
       <>
-      <h1>Dice Roller App</h1>
+        <h1>Dice Roller App</h1>
         <div id="board-container">
         {/* calls all the components that will be rendered on the Board and passes appropriate information and methods as props to the child components */}
           <Dice
             handleDiceRoll={ this.handleDiceRoll }
             currentPic={ currentPic }
           />
-          <RestartButton
-          restartGame={ this.handleRestartClick }
-          />
-          <Log
-            diceLog={ diceLog }
-          />
+          <RestartButton restartGame={ this.handleRestartClick } />
+          <Log diceLog={ diceLog } />
         </div>
       </>
     )

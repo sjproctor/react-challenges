@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 class RestartButton extends Component{
-
   // <restartGame={ this.handleRestartClick }> is passed as this.props.restartGame
   render(){
     return(

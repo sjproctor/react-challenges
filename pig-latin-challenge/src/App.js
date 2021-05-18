@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 import './App.css'
+import butcherPig from './assets/butcherPig.jpeg'
 
 class App extends Component {
   constructor(props){
     super(props)
-    // the state object holds information that can be displayed to the user and updated throughout the program
     this.state = {
-      // "phrase" is the text entered by the user - right now there are some test words hard coded to make the process of testing your code a bit faster and easier
       // ACTION ITEM: when you are ready for your full user experience, delete the test words so phrase is assigned an empty string
       phrase: "echo through yummy squeal queen fry",
-      // "phraseTranslated" is what the user will see appear on the page as Pig Latin, it starts as the preset message and updates when your user clicks the "submit" button
       phraseTranslated: "This is where your translated sentence will appear."
     }
   }
@@ -17,14 +15,8 @@ class App extends Component {
   // The "myPigLatinCodeHere" function is where you will put your logic to convert the sentence entered by the user to Pig Latin
 
   myPigLatinCodeHere = () => {
-    // the variable "userInput" will contain the text input from the user modified into an array of words
-    // no need to change this variable
     let userInput = this.state.phrase.split(" ")
-    console.log("userInput:", userInput)
-
-    // now that we have an array of words, we can map over the array and access each word
     let translatedWordsArray = userInput.map(currentWord => {
-      // ACTION ITEM: use "currentWord" as a starting point for your code
       console.log("currentWord:", currentWord)
 
       let vowelsArray = currentWord.split("").filter(vowel => {
@@ -93,26 +85,23 @@ class App extends Component {
   }
 
   render() {
-    // inside the return is all our JSX tags
     return (
       <React.Fragment>
         <h1>Pig Latin Translator</h1>
         <img
-          src="https://lh3.googleusercontent.com/QvvsRY5ShwDNEouVMK8_z7QCwS3grkgd4mzZOlom23Hurralk54ObvsyEMM8ZSNR5pEFBeBMzltzEEcgi2llYJnhXTuXClN3njmMjtw3vgn8Go5jr40fHMNzfI64eYRrnHbZUutxCA=w2400"
+          src={ butcherPig }
           alt="pig with butcher cut names in pig latin"
-          id="butcherPig"
+          className="butcherPig"
         />
-        <div id="box">
+        <div className="inputArea">
           <h4>Enter phrase to be translated:</h4>
-          {/* user input field - every DOM event that happens in the input will call the handleChange method and update state */}
           <input
             type="text"
-            id="inputPhrase"
+            className="inputPhrase"
             onChange={ this.handleInput }
             value={ this.state.phrase }
           />
           <br />
-          {/* button that called the setUpPreventDefault method which calls the myPigLatinCodeHere method */}
           <button onClick={ this.setUpPreventDefault }>Submit</button>
           <button onClick={ this.restartGame }>Clear</button>
         </div>

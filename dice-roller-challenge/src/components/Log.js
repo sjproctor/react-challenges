@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Log extends Component{
   render(){
     return(
-      <div id="log-container">
+      <div className="log-container">
         <h2>Previous Rolls</h2>
         {/* mapping over each value in the props array (diceLog) and returning each value as its own tag */}
         { this.props.diceLog.map((value, index) => {

@@ -11,17 +11,17 @@ button{
   padding: 1em;
   border: 2px solid black;
 }
-#dice-img{
+.dice-img{
   width: 300px;
   height: 300px;
 }
-#board-container{
+.board-container{
   display: flex;
   flex-direction: row;
 }
-#dice-container{
+.dice-container{
   width: 45%
 }
-#log-container{
+.log-container{
   width: 45%
 }

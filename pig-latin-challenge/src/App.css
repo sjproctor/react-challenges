@@ -1,41 +1,52 @@
 body {
-  margin: 2em;
+  margin: 1rem;
   font-family: 'Josefin Sans', sans-serif;
   text-align: center;
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 4rem;
 }
 
 button {
-  margin: 1em;
-  border-radius: .5em;
-  padding: 1em;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
 
 footer {
-  padding: 2em;
+  padding: 2rem;
 }
 
-input {
-  border-radius: .5em;
-}
-
-#butcherPig {
+.butcherPig {
   width: 12rem;
 }
 
-#inputPhrase{
+.inputPhrase {
+  border-radius: .5rem;
   font-size: 1rem;
   height: 5rem;
   width: 20rem;
   text-align: center;
 }
 
-#box{
+.inputArea {
   background-color: #606060;
   color: #fff;
-  border-radius: .5em;
+  border-radius: .5rem;
   padding: 1rem;
+}
+
+@media only screen and (max-width: 650px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .inputPhrase{
+    font-size: 1rem;
+    height: 5rem;
+    width: 90%;
+    padding: 1rem;
+    text-align: center;
+  }
 }

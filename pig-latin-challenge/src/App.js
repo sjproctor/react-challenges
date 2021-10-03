@@ -25,12 +25,15 @@ class App extends Component {
       console.log("vowelsArray:", vowelsArray)
 
       let firstVowel = vowelsArray[0]
+      // letter (string)
       console.log("firstVowel:", firstVowel)
 
       let firstVowelLocation = currentWord.indexOf(firstVowel)
+      // index (number)
       console.log("firstVowelLocation:", firstVowelLocation)
 
       let qChecker = currentWord[firstVowelLocation - 1]
+      // letter (string)
       console.log("q-checker:", qChecker)
 
       if(currentWord[0] === firstVowel){
@@ -61,7 +64,6 @@ class App extends Component {
     this.setState({ phraseTranslated: translatedWords })
   }
 
-
   restartGame = () => {
     // this method restarts the game by setting the original state
     // ACTION ITEM: when you are ready for your full user experience, delete the test words in phrase so that is assigned an empty string
@@ -86,7 +88,7 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <h1>Pig Latin Translator</h1>
         <img
           src={ butcherPig }
@@ -107,7 +109,7 @@ class App extends Component {
         </div>
         <h3>{ this.state.phraseTranslated }</h3>
         <footer>Coded by SARAH! </footer>
-      </React.Fragment>
+      </>
     )
   }
 }

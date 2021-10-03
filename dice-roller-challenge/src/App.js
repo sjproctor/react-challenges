@@ -36,6 +36,7 @@ class App extends Component{
     this.setState({ currentPic: newRoll, diceLog: [...diceLog, diceRoll +1 ] })
   }
 
+
   handleRestartClick = () => {
     // method that sets the original state to restart the game
     // this method is passed as props to the RestartButton component

@@ -1,47 +1,23 @@
-body{
-  margin: 1em;
-  font-family: 'Permanent Marker', cursive;
+h1, h3{
   text-align: center;
 }
-h1{
-  font-size: 50px;
+
+.button {
+  text-align: center;
+  padding: 10px;
 }
-button{
-  padding: 1em;
-  margin: 1em;
-  background-color: #9f90d0;
+
+.square{
+  height: 200px;
+  width: 200px;
   border: 2px solid black;
-  margin-top: 70px;
+  font-size: 10rem;
+  text-align: center;
 }
-.statusDiv{
-  font-size: 30px;
-  z-index: 1;
-  margin-bottom: 80px;
-}
-#outcomeBoard{
+
+.gameboard{
   display: flex;
   flex-wrap: wrap;
-  height: 460px;
-  width: 465px;
+  width: 620px;
   margin: 0 auto;
-  background-color: #e6faff;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  position: relative;
-
-}
-#board{
-  height: 600px;
-  z-index: -1;
-  position: absolute;
-}
-#square{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 150px;
-  width: 150px;
-  font-size: 60px;
-  z-index: 1;
 }

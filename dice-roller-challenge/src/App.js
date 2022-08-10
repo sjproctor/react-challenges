@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Dice from './components/Dice'
 import Log from './components/Log'
 import RestartButton from './components/RestartButton'
-// imports for the dice images (I stored the images in a folder called assets for organization)
+// imports for the dice images (I stored the images in a folder called assets)
 import dice from './assets/dice.png'
 import dice1 from './assets/dice-1.png'
 import dice2 from './assets/dice-2.png'
@@ -12,8 +12,8 @@ import dice5 from './assets/dice-5.png'
 import dice6 from './assets/dice-6.png'
 import './App.css'
 
-class App extends Component{
-  constructor(props){
+class App extends Component {
+  constructor(props) {
     super(props)
     this.state = {
       // puts all the dice images in an array
@@ -33,7 +33,7 @@ class App extends Component{
     // variable holding the current image from the array
     let newRoll = rollImages[diceRoll]
     // setting state with the current image and logging the current roll
-    this.setState({ currentPic: newRoll, diceLog: [...diceLog, diceRoll +1 ] })
+    this.setState({currentPic: newRoll, diceLog: [...diceLog, diceRoll +1]})
   }
 
 
@@ -47,7 +47,7 @@ class App extends Component{
     })
   }
 
-  render(){
+  render() {
     // destructuring the values out of state
     const { currentPic, diceLog } = this.state
     return(
@@ -56,11 +56,11 @@ class App extends Component{
         <div className="board-container">
         {/* calls all the components that will be rendered on the Board and passes appropriate information and methods as props to the child components */}
           <Dice
-            handleDiceRoll={ this.handleDiceRoll }
-            currentPic={ currentPic }
+            handleDiceRoll={this.handleDiceRoll}
+            currentPic={currentPic}
           />
-          <RestartButton restartGame={ this.handleRestartClick } />
-          <Log diceLog={ diceLog } />
+          <RestartButton restartGame={this.handleRestartClick} />
+          <Log diceLog={diceLog} />
         </div>
       </>
     )

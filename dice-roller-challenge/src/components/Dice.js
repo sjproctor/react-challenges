@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-class Dice extends Component{
-  render(){
+class Dice extends Component {
+  render() {
     return(
       <div className="dice-container">
         <h2>Click to Roll</h2>
@@ -10,8 +10,8 @@ class Dice extends Component{
         <img
           className="dice-img"
           alt="image of dice"
-          src={ this.props.currentPic }
-          onClick={ this.props.handleDiceRoll }
+          src={this.props.currentPic}
+          onClick={this.props.handleDiceRoll}
         />
       </div>
     )
